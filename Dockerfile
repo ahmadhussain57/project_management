@@ -19,7 +19,8 @@ RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs
 RUN chmod -R 775 storage bootstrap/cache
 
 # أمر التشغيل
-CMD php artisan config:cache && \
+CMD php artisan config:clear && \
+    php artisan config:cache && \
     php artisan route:cache && \
     php artisan view:cache && \
     php artisan migrate --force && \
